@@ -26,6 +26,8 @@ body {
     radial-gradient(circle at 18% 8%, rgba(143, 31, 38, 0.2), transparent 24rem),
     radial-gradient(circle at 86% 16%, rgba(244, 239, 230, 0.07), transparent 22rem),
     linear-gradient(180deg, #030303 0%, #0b0b0b 50%, #020202 100%);
+  background-size: auto, auto, auto;
+  background-attachment: scroll, scroll, scroll;
   color: var(--white);
   font-family: Inter, Arial, sans-serif;
   line-height: 1.6;
@@ -36,12 +38,51 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.22;
+  z-index: 0;
+  opacity: 0.18;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    url("bg-skull-tile.png"),
+    url("bg-snake-tile.png"),
+    url("bg-heart-tile.png"),
+    url("bg-skull-tile-small.png"),
+    url("bg-snake-tile-small.png"),
+    url("bg-heart-tile-small.png");
+  background-repeat: repeat;
+  background-size:
+    28.75rem 28.75rem,
+    32.5rem 32.5rem,
+    31.25rem 31.25rem,
+    33.75rem 33.75rem,
+    36.25rem 36.25rem,
+    35rem 35rem;
+  background-position:
+    0 0,
+    10rem 4rem,
+    4rem 15rem,
+    18rem 20rem,
+    2rem 27rem,
+    31rem 2rem;
+  filter: contrast(1.08);
+}
+
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 a {
